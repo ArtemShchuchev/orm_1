@@ -35,9 +35,9 @@ int main(int argc, char** argv)
 		session.mapClass<Stock>("Stock");
 		session.mapClass<Sale>("Sale");
 
-		//session.createTables();
+		session.createTables();
 
-		//createrecords(session);
+		createrecords(session);
 
 		takerecords(session);
 	}
