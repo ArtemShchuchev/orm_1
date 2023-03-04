@@ -14,9 +14,7 @@ void takerecords(Wt::Dbo::Session&);
 
 int main(int argc, char** argv)
 {
-	printHeader(L"Работа с PostgreSQL из C++");
-	// enable buffering to prevent VS from chopping up UTF-8 byte sequences
-	//setvbuf(stdout, nullptr, _IOFBF, 1000);
+	printHeader(L"Домашнее задание к занятию «C++ и БД. ORM»");
 
 	const std::string connectionstring(
 		"host=localhost "
@@ -37,9 +35,9 @@ int main(int argc, char** argv)
 		session.mapClass<Stock>("Stock");
 		session.mapClass<Sale>("Sale");
 
-		session.createTables();
+		//session.createTables();
 
-		createrecords(session);
+		//createrecords(session);
 
 		takerecords(session);
 	}
