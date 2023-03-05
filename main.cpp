@@ -35,9 +35,19 @@ int main(int argc, char** argv)
 		session.mapClass<Stock>("Stock");
 		session.mapClass<Sale>("Sale");
 
-		session.createTables();
-
-		createrecords(session);
+		try
+		{
+			session.createTables();
+			createrecords(session);
+		}
+		catch (const std::exception& err)
+		{
+			consoleCol(col::br_red);
+			std::wcout << L"\nОшибка типа: " << typeid(err).name() << "\n";
+			std::wcerr << L"\nСообщение об ошибке:\n";
+			std::wcerr << utf2wide(err.what()) << '\n';
+			consoleCol(col::cancel);
+		}
 
 		takerecords(session);
 	}
